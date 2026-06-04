@@ -48,8 +48,9 @@ class NewsSystemFacade {
     void assignReporter(const Reporter& reporterToAssign);
     void addSource(const InformationSource& source);
     void linkStory(const Story& story);
-    Artical compareNewsCoverage(const Story& story);
+    Article compareNewsCoverage(const Story& story);
     char* detectMediaBias(const Topic& topic);
     char* generateTopicSummary(const Topic& topic);
-}
+};
+
 #endif
