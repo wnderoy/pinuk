@@ -1,4 +1,4 @@
-# pinuk
+# News analysis system
 ![alt text](image.png)
 This C++ project is part of the Object Oriented Programming course at Afeka College.
 
