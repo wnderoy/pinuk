@@ -18,7 +18,8 @@ public:
     int getYear() const;
 
     char** format() const;
-    bool isBefore(const Date& other) const;
+    bool operator==(const Date& other) const;
+    bool operator<(const Date& other) const;    
 };
 
 #endif // __DATE_H

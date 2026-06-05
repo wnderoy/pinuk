@@ -46,11 +46,29 @@ class NewsSystemFacade {
 
     void publishArticle(Article& articalToPublish); //print it to screen, update publish date,
     void assignReporter(const Reporter& reporterToAssign);
-    void addSource(const InformationSource& source);
-    void linkStory(const Story& story);
     Article compareNewsCoverage(const Story& story);
     char* detectMediaBias(const Topic& topic);
     char* generateTopicSummary(const Topic& topic);
+
+    void addSource(InformationSource* s);
+    void addReporter(Reporter* r);
+    void addChannel(Channel* c);
+    void addArticle(Article* a);
+    void addPublicFigure(PublicFigure* f);
+
+    Channel* getChannelByIndex(int index) const;
+    Reporter* getReporterByIndex(int index) const;
+    InformationSource* getSourceByIndex(int index) const;
+
+    int getChannelCount() const;
+    int getReporterCount() const;
+    int getSourceCount() const;
+
+    void printAllArticles() const;
+    void printAllSources() const;
+    void printAllFigures() const;
+    void printArticlesWithFigure(const char* name) const;
+    void printSystemReport() const;
 };
 
 #endif

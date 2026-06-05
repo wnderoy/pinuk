@@ -48,7 +48,8 @@ public:
     Article& operator=(const Article& other);
 
     bool operator==(const Article& other) const;
-
+    bool operator>(const Article& other) const;//compare credebility
+    
     const char* getTitle() const;
     Date getPublishDate() const;
     const char* getLanguage() const;

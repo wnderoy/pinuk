@@ -24,10 +24,14 @@ public:
           const Date& startDate, int importanceLevel);
     ~Story();
 
+    Story& operator+=(Article* article);
+
     char* getTitle() const;
     char* getDescription() const;
     Date getStartDate() const;
     int getImportanceLevel() const;
+
+    
 
     void addArticle(Article* article);
     Article** getArticles(int& count) const;
