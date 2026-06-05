@@ -8,7 +8,7 @@ class Clip : public InformationSource
 {
 private:
     int length;         // in seconds
-    char* resolution;
+    char* resolution;   
     char* transcript;
 
 public:

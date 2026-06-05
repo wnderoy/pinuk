@@ -6,7 +6,7 @@
 #include "Tweet.h"
 using namespace std;
 
-class Celebrity : public PublicFigure
+class Celebrity : virtual public PublicFigure
 {
 private:
     char* industry;

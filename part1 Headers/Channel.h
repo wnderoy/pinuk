@@ -37,6 +37,7 @@ public:
     Channel& operator=(const Channel& other);
 
     bool operator==(const Channel& other) const;
+    Channel& operator+=(Reporter* reporter);
 
     char* getName() const;
     char* getCountry() const;

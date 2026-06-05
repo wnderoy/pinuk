@@ -17,8 +17,7 @@ protected:
 public:
     PublicFigure(const char*& name, double popularityScore,
                  const char*& publicRole);
-    ~PublicFigure() = default;
-
+    virtual ~PublicFigure();
     char* getName() const;
     double getPopularityScore() const;
     char* getPublicRole() const;

@@ -67,6 +67,8 @@ int main() {
             Date collectedDate(5, 6, 2026);
 
             if (sourceType == 1) {
+                cout << "Enter author name: ";
+                char* author = allocateStringInput();
                 cout << "Enter character count: ";
                 int chars = 0; cin >> chars;
                 cout << "Enter likes count: ";
@@ -75,16 +77,27 @@ int main() {
                 int reps = 0; cin >> reps;
                 clearInput();
 
-                systemFacade.addSource(new Tweet(sName, sText, score, collectedDate, chars, likes, reps));
+                // matches tweet signature: tweet(const char*, const char*, const char*, double, const date&, int, int, int)
+                systemFacade.addSource(new Tweet(sName, sText, author, score, collectedDate, chars, likes, reps));
+                delete[] author;
             } else {
                 cout << "Enter runtime length in seconds: ";
                 int length = 0; cin >> length;
                 clearInput();
                 cout << "Enter tracking resolution parameter: ";
                 char* res = allocateStringInput();
+                cout << "Enter transcript block text: ";
+                char* trans = allocateStringInput();
 
-                systemFacade.addSource(new Clip(sName, sText, score, collectedDate, length, res));
+                // matches clip signature with reference to pointers: clip(const char*&, const char*&, double, const date&, int, const char*&, const char*&)
+                const char* refName = sName;
+                const char* refText = sText;
+                const char* refRes = res;
+                const char* refTrans = trans;
+                systemFacade.addSource(new Clip(refName, refText, score, collectedDate, length, refRes, refTrans));
+                
                 delete[] res;
+                delete[] trans;
             }
             delete[] sName;
             delete[] sText;
@@ -95,13 +108,20 @@ int main() {
             char* rName = allocateStringInput();
             cout << "Is independent status tracking (1 for true, 0 for false): ";
             bool ind = false; cin >> ind;
-            cout << "Enter years of field experience: ";
-            int exp = 0; cin >> exp;
+            cout << "Enter reliability baseline score (0.0 - 1.0): ";
+            double relScore = 0.0; cin >> relScore;
             clearInput();
             cout << "Enter specialized domain: ";
             char* spec = allocateStringInput();
+            cout << "Enter years of field experience: ";
+            int exp = 0; cin >> exp;
+            clearInput();
 
-            systemFacade.addReporter(new Reporter(rName, ind, exp, spec));
+            // matches reporter signature with reference to pointers: reporter(const char*&, bool, double, const char*&, int)
+            const char* refName = rName;
+            const char* refSpec = spec;
+            systemFacade.addReporter(new Reporter(refName, ind, relScore, refSpec, exp));
+            
             delete[] rName;
             delete[] spec;
             cout << "Reporter registered system-wide." << endl;
@@ -168,13 +188,8 @@ int main() {
 
             Date pubDate(5, 6, 2026);
 
-            // concrete simulation of derived implementation since base article profile contains abstract logic
-            // inside a full context this initializes a specific downstream subclass format directly
-            // article instance tracking registered into structural container pool
-            cout << "Article generated. Assigning logged sources to balance metrics..." << endl;
-            if (systemFacade.getSourceCount() > 0) {
-                cout << "Linked source tracking " << systemFacade.getSourceByIndex(0)->getSourceName() << " to infrastructure." << endl;
-            }
+            // article generation logic container binding stub
+            cout << "Article entry skipped: Base class requires structural instantiation through concrete child implementations." << endl;
 
             delete[] title;
             delete[] lang;

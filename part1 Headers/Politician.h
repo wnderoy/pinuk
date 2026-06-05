@@ -5,7 +5,7 @@
 #include "PublicFigure.h"
 using namespace std;
 
-class Politician : public PublicFigure
+class Politician : virtual public PublicFigure
 {
 private:
     char* party;
