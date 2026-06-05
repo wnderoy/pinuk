@@ -25,8 +25,7 @@ public:
     double getReliabilityScore() const;
     Date getCollectedDate() const;
 
-    Article** seeAllArticles(int& count) const;
-    double compareTo(const InformationSource& other) const;
+    bool operator==(const InformationSource& other) const;
 };
 
 #endif // __INFORMATION_SOURCE_H

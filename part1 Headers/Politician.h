@@ -8,16 +8,16 @@ using namespace std;
 class Politician : public PublicFigure
 {
 private:
-    string party;
-    string ideology;
+    char* party;
+    char* ideology;
 
 public:
-    Politician(const string& name, double popularityScore,
-               const string& publicRole,
-               const string& party, const string& ideology);
+    Politician(const char*& name, double popularityScore,
+               const char*& publicRole,
+               const char*& party, const char*& ideology);
 
-    string getParty() const;
-    string getIdeology() const;
+    char* getParty() const;
+    char* getIdeology() const;
 
     void respondToCoverage() const;
 };

@@ -2,26 +2,29 @@
 #define __TWEET_H
 
 #include "InformationSource.h"
-using namespace std;
 
-class Tweet : public InformationSource
-{
+class Tweet : public InformationSource {
 private:
+    char* author;
     int characterCount;
     int likes;
     int reposts;
 
 public:
-    Tweet(const char*& sourceName, const char*& text,
+    // ctor, should use init list (same names as vars)
+   Tweet(const char* sourceName, const char* text, const char* author,
           double reliabilityScore, const Date& collectedDate,
           int characterCount, int likes, int reposts);
 
+    ~Tweet();
+    Tweet(const Tweet& other);
+    Tweet& operator=(const Tweet& other);
+
+    const char* getAuthor() const;
     int getCharacterCount() const;
     int getLikes() const;
     int getReposts() const;
-
-    Tweet** getAllTweets(int& count) const;
-    bool detectTrend() const;
+    
 };
 
-#endif // __TWEET_H
+#endif

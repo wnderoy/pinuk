@@ -20,7 +20,6 @@ public:
     char* getIndustry() const;
     int getFollowers() const;
 
-    Tweet* postReaction() const;
 };
 
 #endif // __CELEBRITY_H

@@ -19,15 +19,20 @@ private:
 public:
     explicit Topic(const char*& name, double popularityIndex = 0.0);
     ~Topic();
+    Topic(const Topic& other);
+    Topic operator=(const Topic& other);
+
+
 
     char* getName() const;
     double getPopularityIndex() const;
 
     void addStory(Story* story);
-    Story** getStories(int& count) const;
+    int getStoryCount() const;
+    Story** getStories() const;
 
-    Story** trendingStories(int& count) const;
-    char* compareStoryCoverage() const;
+    Story& getTopStory() const;
+    double calculateAverageImportance() const;
 };
 
 #endif // __TOPIC_H

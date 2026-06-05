@@ -42,9 +42,8 @@ public:
     double getCredibilityScore() const;
     char* getSummary() const;
 
-    char* compareCoverage(const Article& other) const;
-    double calculateBias() const;
-    char* getMainTopic() const;
+    bool mentionsPublicFigure(const char* figureName) const;
+    void updateCredibility(double sourceReliability);
 };
 
 #endif // __ARTICLE_H
