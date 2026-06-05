@@ -52,4 +52,5 @@ class NewsSystemFacade {
     char* detectMediaBias(const Topic& topic);
     char* generateTopicSummary(const Topic& topic);
 };
+
 #endif
