@@ -13,11 +13,16 @@ private:
     int followers;
 
 public:
-    Celebrity(const char*& name, double popularityScore,
-              const char*& publicRole,
-              const char*& industry, int followers);
+    Celebrity(const char* name, double popularityScore,
+              const char* publicRole, const char* industry, 
+              int followers);
 
-    char* getIndustry() const;
+    ~Celebrity();
+    Celebrity& operator=(const Celebrity& other);
+
+    bool operator==(const Celebrity& other) const;
+
+    const char* getIndustry() const;
     int getFollowers() const;
 
 };
