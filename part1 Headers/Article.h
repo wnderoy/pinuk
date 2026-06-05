@@ -45,9 +45,7 @@ public:
             int maxFigures = 10, int maxSources = 10);
     ~Article();
     Article(const Article& other);
-    Article(Article&& other) noexcept;
     Article& operator=(const Article& other);
-    Article& operator=(Article&& other) noexcept;
 
     bool operator==(const Article& other) const;
 

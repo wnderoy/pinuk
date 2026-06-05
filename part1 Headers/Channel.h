@@ -34,9 +34,7 @@ public:
             int maxReporters = 50, int maxArticles = 100);
     ~Channel();
     Channel(const Channel& other);
-    Channel(Channel&& other) noexcept;
     Channel& operator=(const Channel& other);
-    Channel& operator=(Channel&& other);
 
     bool operator==(const Channel& other) const;
 

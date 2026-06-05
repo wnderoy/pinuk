@@ -17,9 +17,7 @@ public:
                         double mediaInfluence);
     ~CelebrityPolitician();
     CelebrityPolitician(const CelebrityPolitician& other);
-    CelebrityPolitician(CelebrityPolitician&& other) noexcept;
     CelebrityPolitician& operator=(const CelebrityPolitician& other);
-    CelebrityPolitician& operator=(CelebrityPolitician&& other);
     
     double getMediaInfluence() const;
 
