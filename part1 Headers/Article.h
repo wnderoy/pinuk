@@ -9,6 +9,7 @@ using namespace std;
 class Story;
 class Topic;
 class PublicFigure;
+class InformationSource;
 
 class Article
 {
@@ -22,28 +23,53 @@ private:
 
     Story** relatedStories;
     int storyCount;
+    int maxStories;
 
     Topic** discussedTopics;
     int topicCount;
+    int maxTopics;
 
     PublicFigure** mentionedFigures;
     int figureCount;
+    int maxFigures;
+
+    InformationSource** supportingSources;
+    int sourceCount;
+    int maxSources;
 
 public:
-    Article(const char*& title, const Date& publishDate,
-            const char*& language, double biasScore,
-            double credibilityScore, const char*& summary);
+    Article(const char* title, const Date& publishDate,
+            const char* language, double biasScore,
+            double credibilityScore, const char* summary,
+            int maxStories = 10, int maxTopics = 10, 
+            int maxFigures = 10, int maxSources = 10);
     ~Article();
+    Article(const Article& other);
+    Article(Article&& other) noexcept;
+    Article& operator=(const Article& other);
+    Article& operator=(Article&& other) noexcept;
 
-    char* getTitle() const;
+    bool operator==(const Article& other) const;
+
+    const char* getTitle() const;
     Date getPublishDate() const;
-    char* getLanguage() const;
+    const char* getLanguage() const;
     double getBiasScore() const;
     double getCredibilityScore() const;
-    char* getSummary() const;
+    const char* getSummary() const;
+    
+    int getStoryCount() const;
+    int getMaxStories() const;
+    int getTopicCount() const;
+    int getMaxTopics() const;
+    int getFigureCount() const;
+    int getMaxFigures() const;
+    int getSourceCount() const;
+    int getMaxSources() const;
 
     bool mentionsPublicFigure(const char* figureName) const;
     void updateCredibility(double sourceReliability);
+    void addSupportingSource(InformationSource* source);
 };
 
 #endif // __ARTICLE_H

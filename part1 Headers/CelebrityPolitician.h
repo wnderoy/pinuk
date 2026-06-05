@@ -4,19 +4,23 @@
 #include "Politician.h"
 #include "Celebrity.h"
 
-// Multiple inheritance: a public figure who is both a Celebrity and a Politician
+// multiple inheritance: a public figure who is both a Celebrity and a Politician
 class CelebrityPolitician : public Politician, public Celebrity
 {
 private:
     double mediaInfluence;
 
 public:
-    CelebrityPolitician(const char*& name, double popularityScore,
-                        const char*& publicRole,
-                        const char*& party, const char*& ideology,
-                        const char*& industry, int followers,
+   CelebrityPolitician(const char* name, double popularityScore, const char* publicRole,
+                        const char* party, const char* ideology,
+                        const char* industry, int followers,
                         double mediaInfluence);
-
+    ~CelebrityPolitician();
+    CelebrityPolitician(const CelebrityPolitician& other);
+    CelebrityPolitician(CelebrityPolitician&& other) noexcept;
+    CelebrityPolitician& operator=(const CelebrityPolitician& other);
+    CelebrityPolitician& operator=(CelebrityPolitician&& other);
+    
     double getMediaInfluence() const;
 
     void influencePublicDebate() const;
